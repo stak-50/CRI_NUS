@@ -185,59 +185,89 @@ def run_daily_upload_sf(start=None, end=None):
 #     end = datetime(2026, 1, 1)
 #     run_daily_upload_sf()
 #     print(f"Done {year} {month} {date}")
-#
-if __name__ == "__main__":
-    # SIMPLE TEST: .mat -> DataFrame -> CRI_TEST.PD_DAILY.PD_DAILY_TEST
+
+def run_pd_daily_upload():
+    # 1) Get cleaned DataFrame
     df = data_preprocessing()
-    # setup_logging()
-    # logging.info("Starting PD upload...")
-    # try:
-    #     run_pd_daily_upload()
-    #     logging.info("PD upload succeeded")
-    # except Exception:
-    #     logging.exception("PD upload failed")
-    # raise
-    print("Rows in df:", len(df))
-    print("DEBUG: starting test insert")
-    print("DEBUG: df shape:", df.shape)
-    print("DEBUG: df head:\n", df.head())
-    # NEW: normalize types so Snowflake can bind them
-    df["comp_id"] = df["comp_id"].astype(int)
-    df["date"] = pd.to_datetime(df["date"]).dt.date          # pure Python date objects
-    for col in ["pd_1", "pd_3", "pd_6", "pd_12", "pd_24", "pd_36", "pd_48", "pd_60"]:
-        df[col] = df[col].astype(float)
 
-
+    # 2) Convert df to tuples in correct order
     data_tuple = list(df.itertuples(index=False, name=None))
 
+    # 3) Read insert settings from config
+    insert_settings = config["insert_settings"]
+    batch_size = insert_settings["batch_size"]
+    max_workers = insert_settings["max_workers"]
+
+    # 4) Build INSERT SQL (match your real table/columns)
     insert_query = """
         INSERT INTO CRI_TEST.PD_DAILY.PD_DAILY_TEST (
-            comp_id,
-            date,
-            pd_1,
-            pd_3,
-            pd_6,
-            pd_12,
-            pd_24,
-            pd_36,
-            pd_48,
-            pd_60
+            comp_id, date,
+            pd_1, pd_3, pd_6,
+            pd_12, pd_24, pd_36, pd_48, pd_60
         )
-        VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
-    print("DEBUG: about to insert rows:", len(data_tuple))
-    print("DEBUG: sample tuple:", data_tuple if data_tuple else None)
 
+    # 5) Call batch insert helper
     pd_dataframe_2_snowflake_parallel(
         insert_query=insert_query,
         data_tuple=data_tuple,
-        batch_size=1000,
-        max_workers=20,
+        batch_size=batch_size,
+        max_workers=max_workers,
     )
+
+if __name__ == "__main__":
+    # SIMPLE TEST: .mat -> DataFrame -> CRI_TEST.PD_DAILY.PD_DAILY_TEST
+    # df = data_preprocessing()
+    setup_logging()
+    logging.info("Starting PD upload...")
+    try:
+        run_pd_daily_upload()
+        logging.info("PD upload succeeded")
+    except Exception:
+        logging.exception("PD upload failed")
+    raise
+    # print("Rows in df:", len(df))
+    # print("DEBUG: starting test insert")
+    # print("DEBUG: df shape:", df.shape)
+    # print("DEBUG: df head:\n", df.head())
+    # # NEW: normalize types so Snowflake can bind them
+    # df["comp_id"] = df["comp_id"].astype(int)
+    # df["date"] = pd.to_datetime(df["date"]).dt.date          # pure Python date objects
+    # for col in ["pd_1", "pd_3", "pd_6", "pd_12", "pd_24", "pd_36", "pd_48", "pd_60"]:
+    #     df[col] = df[col].astype(float)
+
+
+    # data_tuple = list(df.itertuples(index=False, name=None))
+
+    # insert_query = """
+    #     INSERT INTO CRI_TEST.PD_DAILY.PD_DAILY_TEST (
+    #         comp_id,
+    #         date,
+    #         pd_1,
+    #         pd_3,
+    #         pd_6,
+    #         pd_12,
+    #         pd_24,
+    #         pd_36,
+    #         pd_48,
+    #         pd_60
+    #     )
+    #     VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+    # """
+    # print("DEBUG: about to insert rows:", len(data_tuple))
+    # print("DEBUG: sample tuple:", data_tuple if data_tuple else None)
+
+    # pd_dataframe_2_snowflake_parallel(
+    #     insert_query=insert_query,
+    #     data_tuple=data_tuple,
+    #     batch_size=1000,
+    #     max_workers=20,
+    # )
     
 
 
-    print("Done inserting into CRI_TEST.PD_DAILY.PD_DAILY_TEST")
+    # print("Done inserting into CRI_TEST.PD_DAILY.PD_DAILY_TEST")
 
 
 
