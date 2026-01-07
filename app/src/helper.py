@@ -150,7 +150,8 @@ def calculate_pdir(df: pd.DataFrame) -> pd.Series:
 #     print(f"Finished processing DataFrame with {len(df)} rows.")
 #     return df
 def data_preprocessing():
-    mat_dataset = loadmat("C:/Users/KAUSHIK M R/Documents/pd_1.mat")
+    mat_path = config["local_file_path"]          # value from JSON
+    mat_dataset = loadmat(mat_path)
     np_array = mat_dataset["pd"]
 
     df = pd.DataFrame(np_array)

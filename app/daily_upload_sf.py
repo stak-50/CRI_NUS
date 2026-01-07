@@ -9,6 +9,7 @@ import argparse
 from src.helper import get_calibration_date, pd_dataframe_2_snowflake_parallel, data_preprocessing
 from datetime import datetime, timedelta
 import os
+import logging
 
 # List of econ to check the file for
 def _get_econ_list():
@@ -188,6 +189,14 @@ def run_daily_upload_sf(start=None, end=None):
 if __name__ == "__main__":
     # SIMPLE TEST: .mat -> DataFrame -> CRI_TEST.PD_DAILY.PD_DAILY_TEST
     df = data_preprocessing()
+    # setup_logging()
+    # logging.info("Starting PD upload...")
+    # try:
+    #     run_pd_daily_upload()
+    #     logging.info("PD upload succeeded")
+    # except Exception:
+    #     logging.exception("PD upload failed")
+    # raise
     print("Rows in df:", len(df))
     print("DEBUG: starting test insert")
     print("DEBUG: df shape:", df.shape)
