@@ -1,0 +1,18 @@
+{
+  "snowflake_config_obj": {
+    "user": "",
+    "password": "",
+    "account": "",
+    "warehouse": "TEST_WH",
+    "database": "CRI_TEST",
+    "schema": "PD_DAILY",
+    "role": "TEST_ROLE"
+    },
+  "db_params": {
+    "host": "localhost",
+    "user": "mysql_user",
+    "password": "mysql_password",
+    "database": "some_mysql_db"
+    }, 
+  "local_file_path": "C:\\Users\\Documents\\pd_1.mat"
+}

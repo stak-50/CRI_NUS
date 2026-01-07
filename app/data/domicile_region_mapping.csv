@@ -1,0 +1,136 @@
+DomicileID,Domicile Name,RegionID,Region Name
+1,Australia,501,Asia Pacific (Developed)
+3,Hong Kong,501,Asia Pacific (Developed)
+6,Japan,501,Asia Pacific (Developed)
+9,Singapore,501,Asia Pacific (Developed)
+10,South Korea,501,Asia Pacific (Developed)
+11,Taiwan,501,Asia Pacific (Developed)
+17,New Zealand,501,Asia Pacific (Developed)
+2,China,502,Asia Pacific (Emerging)
+4,India,502,Asia Pacific (Emerging)
+5,Indonesia,502,Asia Pacific (Emerging)
+7,Malaysia,502,Asia Pacific (Emerging)
+8,Philippines,502,Asia Pacific (Emerging)
+12,Thailand,502,Asia Pacific (Emerging)
+18,Vietnam,502,Asia Pacific (Emerging)
+19,Sri Lanka,502,Asia Pacific (Emerging)
+20,Pakistan,502,Asia Pacific (Emerging)
+22,Bangladesh,502,Asia Pacific (Emerging)
+132,Cambodia,502,Asia Pacific (Emerging)
+136,Macau,502,Asia Pacific (Emerging)
+138,Papua New Guinea,502,Asia Pacific (Emerging)
+150,Mongolia,502,Asia Pacific (Emerging)
+151,Marshall Island,502,Asia Pacific (Emerging)
+152,Laos,502,Asia Pacific (Emerging)
+173,Myanmar,502,Asia Pacific (Emerging)
+15,United States,503,North America
+16,Canada,503,North America
+112,Bermuda,503,North America
+168,Greenland,503,North America
+23,Austria,504,Europe
+25,Belgium,504,Europe
+26,Bosnia and Herzegovina,504,Europe
+29,Bulgaria,504,Europe
+30,Croatia,504,Europe
+31,Cyprus,504,Europe
+32,Czech Republic,504,Europe
+33,Denmark,504,Europe
+35,Estonia,504,Europe
+36,Finland,504,Europe
+37,France,504,Europe
+38,Germany,504,Europe
+40,Greece,504,Europe
+41,Guernsey,504,Europe
+42,Hungary,504,Europe
+43,Iceland,504,Europe
+45,Ireland,504,Europe
+47,Italy,504,Europe
+52,Latvia,504,Europe
+54,Lithuania,504,Europe
+55,Luxembourg,504,Europe
+56,"Macedonia, the former Yugoslav Republic of",504,Europe
+58,Malta,504,Europe
+60,Montenegro,504,Europe
+64,Netherlands,504,Europe
+66,Norway,504,Europe
+69,Poland,504,Europe
+70,Portugal,504,Europe
+72,Romania,504,Europe
+73,Russian Federation,504,Europe
+75,Serbia,504,Europe
+76,Slovakia,504,Europe
+77,Slovenia,504,Europe
+79,Spain,504,Europe
+81,Sweden,504,Europe
+82,Switzerland,504,Europe
+85,Turkey,504,Europe
+87,Ukraine,504,Europe
+89,United Kingdom,504,Europe
+117,Azerbaijan,504,Europe
+126,Faeroe Island,504,Europe
+129,Gibraltar,504,Europe
+130,Isle Of Man,504,Europe
+131,Jersey,504,Europe
+133,Liechtenstein,504,Europe
+134,Monaco,504,Europe
+140,Reunion,504,Europe
+165,Georgia,504,Europe
+162,Moldova,504,Europe
+92,Argentina,505,Latin America & Caribbean
+94,Bahamas,505,Latin America & Caribbean
+95,Brazil,505,Latin America & Caribbean
+96,Colombia,505,Latin America & Caribbean
+97,Chile,505,Latin America & Caribbean
+100,Jamaica,505,Latin America & Caribbean
+101,Cayman Islands,505,Latin America & Caribbean
+102,Mexico,505,Latin America & Caribbean
+103,Peru,505,Latin America & Caribbean
+104,Panama,505,Latin America & Caribbean
+106,Uruguay,505,Latin America & Caribbean
+107,Venezuela,505,Latin America & Caribbean
+108,"Virgin Islands, British",505,Latin America & Caribbean
+120,Belize,505,Latin America & Caribbean
+123,Curacao,505,Latin America & Caribbean
+124,Dominican Republic,505,Latin America & Caribbean
+125,Falkland Islands,505,Latin America & Caribbean
+139,Puerto Rico,505,Latin America & Caribbean
+149,Virgin Islands,505,Latin America & Caribbean
+146,Turks And Caicos Islands,505,Latin America & Caribbean
+98,Costa Rica,505,Latin America & Caribbean
+128,French Guiana,505,Latin America & Caribbean
+93,Barbados,505,Latin America & Caribbean
+27,Botswana,506,Sub-Saharan Africa
+39,Ghana,506,Sub-Saharan Africa
+50,Kenya,506,Sub-Saharan Africa
+57,Malawi,506,Sub-Saharan Africa
+59,Mauritius,506,Sub-Saharan Africa
+62,Mozambique,506,Sub-Saharan Africa
+63,Namibia,506,Sub-Saharan Africa
+65,Nigeria,506,Sub-Saharan Africa
+78,South Africa,506,Sub-Saharan Africa
+83,"Tanzania, United Republic of",506,Sub-Saharan Africa
+86,Uganda,506,Sub-Saharan Africa
+90,Zambia,506,Sub-Saharan Africa
+116,Angola,506,Sub-Saharan Africa
+127,Gabon,506,Sub-Saharan Africa
+137,Niger Republic,506,Sub-Saharan Africa
+141,Sudan,506,Sub-Saharan Africa
+143,Sierra Leone,506,Sub-Saharan Africa
+147,Togo,506,Sub-Saharan Africa
+156,Cameroon,506,Sub-Saharan Africa
+163,Rwanda,506,Sub-Saharan Africa
+167,Madacascar,506,Sub-Saharan Africa
+24,Bahrain,507,"Middle East, North Africa and Central Asia"
+34,Egypt,507,"Middle East, North Africa and Central Asia"
+44,Iraq,507,"Middle East, North Africa and Central Asia"
+46,Israel,507,"Middle East, North Africa and Central Asia"
+48,Jordan,507,"Middle East, North Africa and Central Asia"
+49,Kazakhstan,507,"Middle East, North Africa and Central Asia"
+51,Kuwait,507,"Middle East, North Africa and Central Asia"
+61,Morocco,507,"Middle East, North Africa and Central Asia"
+67,Oman,507,"Middle East, North Africa and Central Asia"
+71,Qatar,507,"Middle East, North Africa and Central Asia"
+74,Saudi Arabia,507,"Middle East, North Africa and Central Asia"
+84,Tunisia,507,"Middle East, North Africa and Central Asia"
+88,United Arab Emirates,507,"Middle East, North Africa and Central Asia"
+122,Ivory Coast,507,"Middle East, North Africa and Central Asia"
