@@ -219,14 +219,17 @@ def run_pd_daily_upload():
 if __name__ == "__main__":
     # SIMPLE TEST: .mat -> DataFrame -> CRI_TEST.PD_DAILY.PD_DAILY_TEST
     # df = data_preprocessing()
-    setup_logging()
-    logging.info("Starting PD upload...")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+    )
+    logging.info("Starting PD daily upload...")
     try:
         run_pd_daily_upload()
-        logging.info("PD upload succeeded")
+        logging.info("PD daily upload succeeded")
     except Exception:
-        logging.exception("PD upload failed")
-    raise
+        logging.exception("PD daily upload failed")
+        raise
     # print("Rows in df:", len(df))
     # print("DEBUG: starting test insert")
     # print("DEBUG: df shape:", df.shape)
