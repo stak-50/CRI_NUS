@@ -29,27 +29,24 @@ This application loads PD data from a MATLAB `.mat` file, transforms it into a p
 ### 3.1 Config-Driven Parameters
 
 - Moved environment-specific values into `config/snowflake_config.json`, including:
-  - Path to the PD `.mat` file.
-  - Batch size for inserts.
-  - Maximum number of worker threads.  
+  - Path to the PD `.mat` file. 
 - Updated `helper.py` and `daily_upload_sf.py` to read these values from the config instead of hard-coding them.  
 - This change allows the same code to run on different machines by modifying only the JSON configuration.
 
 ### 3.2 Basic Logging Setup
 
-- Introduced a small logging setup function (for example, in `logging_config.py`) that configures Python’s `logging` module with timestamps and log levels.  
-- Replaced key `print` statements in `daily_upload_sf.py` with `logging.info` and `logging.error` calls.  
+- Introduced a small logging setup function that configures Python’s `logging` module with timestamps and log levels by replacing key `print` statements in `daily_upload_sf.py` with `logging.info` and `logging.error` calls.  
 - This provides clearer visibility into the pipeline’s progress and makes it easier to debug failures when the job is run on a schedule.
 
 ### 3.3 Clear Orchestration Function
 
-- Extracted a dedicated function (for example, `run_pd_daily_upload()`) that:
+- Create a dedicated function (for example, `run_pd_daily_upload()`) that:
   - Loads configuration.
   - Calls the data preprocessing function to produce the DataFrame.
   - Converts rows to tuples and runs the Snowflake batch insert.  
-- Kept the `if __name__ == "__main__":` block focused on calling this function, improving readability and separation between “application entry point” and “business logic”.
+- Kept the `if __name__ == "__main__":` block focused on calling this function, improving readability.
 
-## 4. Future Improvements (Beyond Part-2 Scope)
+## 4. Future Improvements
 
 - Add automated tests for the transformation logic to ensure the DataFrame schema remains stable over time.  
 - Further split helpers into separate modules (configuration, data loading, transformation, Snowflake client) to improve reusability.  
