@@ -133,6 +133,45 @@
 
   ### 2. Running the python file daily_upload_sf.py
     1. After all the above changes are done, files are saved and code is pushed, run the python app/daily_upload_sf.py
-    2. We can observe that the snowflake table is loaded from the TEST_ROLE with a table as seen in the below image:
+    2. Go to the Snowflake and run the following code to observe the table to be loaded with the pd dataframe data:
+        -- Create database & schema for testing
+        CREATE DATABASE IF NOT EXISTS CRI_TEST;
+        CREATE SCHEMA IF NOT EXISTS CRI_TEST.PD_DAILY;
+        
+        -- Create a warehouse (XS size is fine)
+        CREATE WAREHOUSE IF NOT EXISTS TEST_WH
+          WITH WAREHOUSE_SIZE = 'XSMALL'
+          AUTO_SUSPEND = 60
+          AUTO_RESUME = TRUE;
+        
+        -- Create test table for daily PD upload
+        CREATE TABLE IF NOT EXISTS CRI_TEST.PD_DAILY.PD_DAILY_TEST (
+            comp_id      INTEGER,
+            date         DATE,
+            pd_1         FLOAT,
+            pd_3         FLOAT,
+            pd_6         FLOAT,
+            pd_12        FLOAT,
+            pd_24        FLOAT,
+            pd_36        FLOAT,
+            pd_48        FLOAT,
+            pd_60        FLOAT
+        );
+        
+        USE ROLE ACCOUNTADMIN;
+        
+        CREATE ROLE IF NOT EXISTS TEST_ROLE;
+        GRANT ROLE TEST_ROLE TO USER MARK42;
+        
+        GRANT USAGE ON WAREHOUSE TEST_WH TO ROLE TEST_ROLE;
+        GRANT ALL ON DATABASE CRI_TEST TO ROLE TEST_ROLE;
+        GRANT ALL ON SCHEMA CRI_TEST.PD_DAILY TO ROLE TEST_ROLE;
+        
+        
+        SELECT *
+        FROM CRI_TEST.PD_DAILY.PD_DAILY_TEST
+        ORDER BY date DESC;
+        
+    3. We can observe that the snowflake table is loaded from the TEST_ROLE with a table as seen in the below image:
     <img width="1912" height="916" alt="image" src="https://github.com/user-attachments/assets/d703d6c4-0bef-4ce5-80ea-ee507ebd16d3" />
 
