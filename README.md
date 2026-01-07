@@ -83,7 +83,7 @@
         from src.helper import get_calibration_date, pd_dataframe_2_snowflake_parallel, data_preprocessing
         ```
         
-     b. Comment out the existing main functions and replace it with the follwoing function to load the data into snwoflake table:
+     b. Comment out the existing main functions (having daily upload schedule and manual scirpt run) and replace it with the following function to load the entire data into snowflake table:
         ```python
         if __name__ == "__main__":
         <!-- SIMPLE TEST: .mat -> DataFrame -> CRI_TEST.PD_DAILY.PD_DAILY_TEST -->
